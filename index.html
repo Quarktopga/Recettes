@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mon carnet — recettes collaboratives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;0,900;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Bannière affichée uniquement si un problème de configuration/connexion Supabase est détecté -->
+  <div id="config-banner"></div>
+
+  <!-- Les écrans (auth, accueil, édition, lecture, mode chef, compte, amis, légal)
+       sont entièrement injectés ici par js/ui.js -->
+  <div id="screen-root"></div>
+
+  <!-- FAB (visibilité gérée individuellement par ui.js selon l'écran) -->
+  <div id="fab-bar">
+    <button class="fab" id="add-fab" title="Créer une recette" style="display:none">+</button>
+    <button class="fab" id="help-fab" title="Aide" style="display:none">?</button>
+  </div>
+
+  <!-- Barre d'onglets basse (type WhatsApp) — visible sur les écrans de premier niveau -->
+  <nav id="tab-bar" style="display:none">
+    <button class="tab-item" data-tab="home"><span class="tab-icon">🏠</span><span class="tab-label">Accueil</span></button>
+    <button class="tab-item" data-tab="friends"><span class="tab-icon">👥</span><span class="tab-label">Amis</span></button>
+    <button class="tab-item" data-tab="account"><span class="tab-icon">👤</span><span class="tab-label">Compte</span></button>
+  </nav>
+
+  <!-- Modal générique (frigo vide, signalement, etc.) -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal-sheet"></div>
+  </div>
+
+  <!-- Modal minuteur -->
+  <div class="modal-backdrop" id="timer-modal">
+    <div class="modal-sheet" style="text-align:center">
+      <div class="modal-close-bar modal-close-bar-timer"></div>
+      <div id="timer-label" class="hint"></div>
+      <div id="timer-display">00:00</div>
+      <button class="danger-btn" id="timer-stop">Arrêter</button>
+    </div>
+  </div>
+
+  <!-- Tutoriel guidé -->
+  <div id="tutorial-hole"></div>
+  <div id="tutorial-tooltip">
+    <div class="tt-step" id="tt-step-label"></div>
+    <div id="tt-text"></div>
+    <div class="tt-actions">
+      <button class="tt-close" id="tt-close">Fermer</button>
+      <button class="tt-next" id="tt-next">Suivant</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<script type="module" src="js/ui.js"></script>
+</body>
+</html>
