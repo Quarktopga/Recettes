@@ -5,10 +5,8 @@
    ============================================================================================ */
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-// ⚠️ À remplacer par les identifiants de votre projet Supabase (Project Settings > API).
-// Utilisez la clé "anon public" (ou "publishable" sur les projets récents) — jamais la "service_role".
-const SUPABASE_URL = "https://VOTRE-PROJET.supabase.co";
-const SUPABASE_ANON_KEY = "VOTRE_CLE_ANON_PUBLIQUE";
+const SUPABASE_URL = "https://zfptarnpdnqhdtlncuyc.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_Aa2R1Dl49dA0CrStwrJRiw_nWZoXl0q";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
